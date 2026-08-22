@@ -1,6 +1,6 @@
 plugins {
     id 'java-library'
-    id 'net.neoforged.moddev' version '1.0.16'
+    id 'net.neoforged.moddev' version '2.0.1-beta'
 }
 
 tasks.named('wrapper', Wrapper) {
@@ -13,6 +13,7 @@ group = 'net.sanya.procedural'
 
 repositories {
     mavenCentral()
+    maven { url = 'https://maven.neoforged.net/releases' }
 }
 
 base {
@@ -29,7 +30,4 @@ neoForge {
             sourceSet(sourceSets.main)
         }
     }
-}
-
-dependencies {
 }
