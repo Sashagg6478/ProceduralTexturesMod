@@ -1,0 +1,11 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven { url = 'https://maven.neoforged.net/releases' }
+    }
+}
+plugins {
+    id 'net.neoforged.moddev' version '1.0.16'
+}
+rootProject.name = 'ProceduralTexturesMod'
+
