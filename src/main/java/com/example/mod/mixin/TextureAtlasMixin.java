@@ -1,5 +1,6 @@
 package com.example.mod.mixin;
 
+import com.example.mod.texture.BlockColorRegistry;
 import com.example.mod.texture.ProceduralTextureGenerator;
 import com.mojang.blaze3d.platform.NativeImage;
 import net.minecraft.client.renderer.texture.SpriteContents;
@@ -18,13 +19,16 @@ public class TextureAtlasMixin {
 
     @Inject(method = "loadSprite", at = @At("HEAD"), cancellable = true)
     private static void onLoadSprite(ResourceLocation location, Resource resource, CallbackInfoReturnable<SpriteContents> cir) {
-        if (location.getPath().startsWith("block/") || location.getPath().startsWith("item/")) {
+        String path = location.getPath();
+        
+        if (path.startsWith("block/") || path.startsWith("item/")) {
+            int textureSize = 4; // Ультра-оптимизация 4x4
             
-            int textureSize = 4;
-            int defaultColor = 0xFF808080; // ABGR
-            NativeImage generatedImage = ProceduralTextureGenerator.generateNoiseTexture(textureSize, defaultColor, 0.12f);
+            // Получаем цвет в зависимости от имени файла
+            int blockColor = BlockColorRegistry.getColorForPath(path);
+            
+            NativeImage generatedImage = ProceduralTextureGenerator.generateNoiseTexture(textureSize, blockColor, 0.15f);
 
-            // Использование ResourceMetadata.EMPTY решает проблему совместимости типов Java 21
             SpriteContents customContents = new SpriteContents(
                 location,
                 new FrameSize(textureSize, textureSize),
