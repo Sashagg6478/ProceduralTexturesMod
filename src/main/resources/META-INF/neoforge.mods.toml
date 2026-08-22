@@ -7,3 +7,6 @@ modId="proceduraltexturesmod"
 version="1.0.0"
 displayName="Procedural Textures Mod"
 description="Procedural 4x4 textures generator"
+
+[[mixins]]
+config = "proceduraltexturesmod.mixins.json"
