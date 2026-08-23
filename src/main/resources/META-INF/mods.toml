@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+issueTrackerUrl="https://github.com/Sashagg6478/ProceduralTexturesMod/issues"
+license="MIT"
+
+[[mods]]
+modId="proceduraltexturesmod"
+version="1.0.0"
+displayName="Procedural Textures Mod"
+authors="Sanya"
+description="Generates low-res procedural noise textures on the fly."
+
+[[dependencies.proceduraltexturesmod]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36.2.39,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.proceduraltexturesmod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
+    
