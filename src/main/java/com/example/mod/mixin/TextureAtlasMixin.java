@@ -11,9 +11,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(TextureAtlasSprite.class)
 public class TextureAtlasMixin {
 
-    @Inject(method = "mainImage", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getMainImage", at = @At("HEAD"), cancellable = true, remap = false)
     private void onGetMainImage(CallbackInfoReturnable<NativeImage> cir) {
-        // Генерируем чистый 4x4 шум прямо в память
         NativeImage generated = ProceduralTextureGenerator.generateNoiseTexture(4, 0xFF888888, 0.15f);
         cir.setReturnValue(generated);
     }
