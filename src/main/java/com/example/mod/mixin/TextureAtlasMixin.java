@@ -17,17 +17,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(SpriteLoader.class)
 public class TextureAtlasMixin {
 
-    @Inject(method = "loadSprite", at = @At("HEAD"), cancellable = true)
+    // В 1.21.1 целевой метод называется load, а не loadSprite
+    @Inject(method = "load", at = @At("HEAD"), cancellable = true)
     private static void onLoadSprite(ResourceLocation location, Resource resource, CallbackInfoReturnable<SpriteContents> cir) {
         String path = location.getPath();
-        
+
         if (path.startsWith("block/") || path.startsWith("item/")) {
             int textureSize = 4; // Ультра-оптимизация 4x4
-            
+
             // Получаем цвет в зависимости от имени файла
             int blockColor = BlockColorRegistry.getColorForPath(path);
-            
-            NativeImage generatedImage = ProceduralTextureGenerator.generateNoiseTexture(textureSize, blockColor, 0.15f);
+
+            NativeImage generatedImage = ProceduralTextureGenerator.generateSingleColorImage(textureSize, blockColor);
 
             SpriteContents customContents = new SpriteContents(
                 location,
