@@ -13,7 +13,7 @@ description="Generates low-res procedural noise textures on the fly."
 [[dependencies.proceduraltexturesmod]]
     modId="forge"
     mandatory=true
-    versionRange="[36.2.39,)"
+    versionRange="[36.2.42,)"
     ordering="NONE"
     side="BOTH"
 
