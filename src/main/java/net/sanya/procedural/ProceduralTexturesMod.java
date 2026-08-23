@@ -2,7 +2,7 @@ package net.sanya.procedural;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fmlmod.FMLJavaModLoadingContext;
 
 @Mod("proceduraltexturesmod")
 public class ProceduralTexturesMod {
@@ -11,6 +11,6 @@ public class ProceduralTexturesMod {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        // Инициализация мода
+        // Логика инициализации
     }
 }
