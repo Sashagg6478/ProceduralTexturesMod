@@ -1,6 +1,11 @@
 plugins {
-    id 'java-library'
-    id 'net.neoforged.moddev' version '2.0.1-beta'
+    id 'net.neoforged.moddev' version '2.0.5-beta' // или твоя версия
+    id 'org.spongepowered.mixin' version '0.7.+'
+}
+
+mixin {
+    add sourceSets.main, "proceduraltexturesmod.refmap.json"
+    config "proceduraltexturesmod.mixins.json"
 }
 
 tasks.named('wrapper', Wrapper) {
