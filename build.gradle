@@ -2,11 +2,6 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.5-beta' // или твоя версия
 }
 
-mixin {
-    add sourceSets.main, "proceduraltexturesmod.refmap.json"
-    config "proceduraltexturesmod.mixins.json"
-}
-
 tasks.named('wrapper', Wrapper) {
     distributionType = Wrapper.DistributionType.BIN
     gradleVersion = '8.8'
