@@ -2,8 +2,8 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.example.mod.mixin",
-  "refmap": "proceduraltexturesmod.refmap.json",
-  "mixins": [
+  "compatibilityLevel": "JAVA_8",
+  "client": [
     "TextureAtlasMixin"
   ],
   "injectors": {
