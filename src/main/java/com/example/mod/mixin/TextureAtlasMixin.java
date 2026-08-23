@@ -11,7 +11,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(TextureAtlasSprite.class)
 public class TextureAtlasMixin {
 
-    @Inject(method = "getMainImage", at = @At("HEAD"), cancellable = true, remap = false)
+    // Целимся и в MCP имя, и в SRG обфусцированное имя func_195665_a (которое используется на клиенте)
+    @Inject(method = {"mainImage", "func_195665_a", "getMainImage"}, at = @At("HEAD"), cancellable = true, remap = false)
     private void onGetMainImage(CallbackInfoReturnable<NativeImage> cir) {
         NativeImage generated = ProceduralTextureGenerator.generateNoiseTexture(4, 0xFF888888, 0.15f);
         cir.setReturnValue(generated);
