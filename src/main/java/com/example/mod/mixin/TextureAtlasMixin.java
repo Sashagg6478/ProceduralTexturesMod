@@ -28,7 +28,7 @@ public class TextureAtlasMixin {
             // Получаем цвет в зависимости от имени файла
             int blockColor = BlockColorRegistry.getColorForPath(path);
 
-            NativeImage generatedImage = ProceduralTextureGenerator.generateSingleColorImage(textureSize, blockColor);
+            NativeImage generatedImage = ProceduralTextureGenerator.generateNoiseTexture(textureSize, blockColor, 0.15f);
 
             SpriteContents customContents = new SpriteContents(
                 location,
