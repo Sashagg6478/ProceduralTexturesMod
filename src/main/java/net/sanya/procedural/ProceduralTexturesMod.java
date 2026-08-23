@@ -1,16 +1,16 @@
 package net.sanya.procedural;
 
-import net.neoforged.fml.common.Mod;
-import net.neoforged.bus.api.IEventBus;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod("proceduraltexturesmod")
 public class ProceduralTexturesMod {
-    public static final String MODID = "proceduraltexturesmod";
-    private static final Logger LOGGER = LogManager.getLogger();
+    public ProceduralTexturesMod() {
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+    }
 
-    public ProceduralTexturesMod(IEventBus modEventBus) {
-        LOGGER.info("Procedural Textures Mod загружен!");
+    private void setup(final FMLCommonSetupEvent event) {
+        // Инициализация мода
     }
 }
